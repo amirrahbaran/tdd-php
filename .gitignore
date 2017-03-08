@@ -1,4 +1,5 @@
 # IDE specific
 .buildpath
 .project
-.settings/
+.settings
+.idea

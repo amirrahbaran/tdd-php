@@ -1,11 +1,34 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use BankAccount;
+
+require_once('classes/BankAccount.class.php');
 
 class BankAccountTest extends TestCase
 {
-	public function testDeposit() {
-		$bank_account = new BankAccount();
-		$this->fail();
-	}
+    /**
+     *
+     */
+    public function testDeposit() {
+        $bank_account = new BankAccount();
+        $bank_account->deposit(50);
+        $this->assertEquals($bank_account->getBalance(), 50);
+    }
+
+    /**
+     *
+     */
+    public function testWithdraw() {
+        $bank_account = new BankAccount(50);
+        $bank_account->withdraw(30);
+        $this->assertEquals($bank_account->getBalance(), 20);
+    }
+
+    /**
+     *
+     */
+    public function testWithdrawWithPenalty() {
+        $bank_account = new BankAccount(10);
+        $bank_account->withdraw(20);
+        $this->assertEquals($bank_account->getBalance(), -15);
+    }
 }
