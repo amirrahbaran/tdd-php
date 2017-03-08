@@ -18,9 +18,12 @@ class BankAccountTest extends TestCase
      *
      */
     public function testWithdraw() {
-        $bank_account = new BankAccount(50);
-        $bank_account->withdraw(30);
-        $this->assertEquals($bank_account->getBalance(), 20);
+        $bank_account = new BankAccount(100);
+//        $this->assertFalse($bank_account->withdraw(100000)); // should return false
+//        $this->assertEquals($bank_account->getBalance(), 100); // verify no change
+//        $this->assertTrue($bank_account->withdraw(1)); // should return true
+        $bank_account->withdraw(1); // should return true
+        $this->assertEquals($bank_account->getBalance(), 99); // verify change
     }
 
     /**
