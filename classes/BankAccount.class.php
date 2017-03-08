@@ -21,19 +21,19 @@ class BankAccount
     }
 
     /**
-     * @param $i
+     * @param $money
      * @return mixed
      */
-    public function deposit($i) {
-        return $this->balance += $i;
+    public function deposit($money) {
+        return $this->balance += $money;
     }
 
     /**
-     * @param $i
+     * @param $money
      * @return mixed
      */
-    public function withdraw($i) {
-        $this->balance -= $i;
+    public function withdraw($money) {
+        $this->balance -= $money;
         if ($this->balance < 0) {
             $this->balance -= 5;
         }
