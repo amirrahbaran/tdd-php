@@ -35,8 +35,20 @@ class BankAccount
     public function withdraw($money) {
         $this->balance -= $money;
         if ($this->balance < 0) {
-            $this->balance -= 5;
+            $this->balance -= $this->calculatePenalty();
         }
         return $this->balance;
+    }
+
+    /**
+     * @return int
+     */
+    protected function calculatePenalty() {
+        if (isset($this)) {
+            if (isset($this->balance)) {
+            /** @var TYPE_NAME $this */
+                return ((-1) * $this->balance)*(5 / 100);
+            }
+        }
     }
 }
