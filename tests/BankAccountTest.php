@@ -25,12 +25,12 @@ class BankAccountTest extends TestCase
 
     /**
      * After withdrawing money when the balance would be negative
-     * the BankAccount get %5 negative amounts as its income
+     * the BankAccount gets %5 negative amounts as its penalty
      */
     public function testWithdrawWithPenalty() {
         $bank_account = new BankAccount(10);
         $bank_account->withdraw(30);
-        // percentage = (10 - 30)*(5 / 100) = 1
+        // percentage = (10 - 30) * (5 / 100) = 1
         // penalty = (10 - 30) + 1 = 21
         $this->assertEquals($bank_account->getBalance(), -21);
     }
